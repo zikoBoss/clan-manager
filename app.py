@@ -85,7 +85,7 @@ def perform_major_login(access_token, open_id):
         game.timestamp = "2024-12-05 18:15:32"
         game.game_name = "free fire"
         game.game_version = 1
-        game.version_code = "1.123.2"
+        game.version_code = "1.123.15"        # تم التحديث من 1.123.2 إلى 1.123.15
         game.os_info = "Android OS 12 / API-31"
         game.device_type = "Handheld"
         game.network_provider = "Verizon"
@@ -102,9 +102,10 @@ def perform_major_login(access_token, open_id):
         game.language = "en"
         game.open_id = open_id
         game.access_token = access_token
-        game.platform_type = 4   # single platform
+        game.platform_type = 4                # single platform
         game.field_99 = "4"
         game.field_100 = "4"
+
         encrypted = encrypt_payload(game.SerializeToString())
         r = requests.post(LOGIN_URL, headers=LOGIN_HEADERS, data=encrypted, verify=False, timeout=10)
         print("MajorLogin status:", r.status_code)
